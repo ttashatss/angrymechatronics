@@ -1,0 +1,32 @@
+[
+    {
+        "username": "Tasha",
+        "kills": 0,
+        "birdLive": 5
+    },
+    {
+        "username": "Angie",
+        "kills": 1,
+        "birdLive": 3
+    },
+    {
+        "username": "Toffy",
+        "kills": 2,
+        "birdLive": 2
+    },
+    {
+        "username": "A",
+        "kills": 1,
+        "birdLive": 1
+    },
+    {
+        "username": "B",
+        "kills": 2,
+        "birdLive": 2
+    },
+    {
+        "username": "C",
+        "kills": 3,
+        "birdLive": 3
+    }
+]
