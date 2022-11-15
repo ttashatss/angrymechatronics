@@ -6,11 +6,11 @@ const Input = () => {
     const [userName, setUserName] = useState('');
     const router = useRouter()
   
-    const handleNameChange = event => {
+    const handleNameChange = (event: any) => {
         console.log(event.target.value)
         setUserName(event.target.value)
     }
-    const handlePlayButton = event => {
+    const handlePlayButton = (event: any) => {
         console.log(userName)
         router.push('/gameplay')
     }
