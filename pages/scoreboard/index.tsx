@@ -1,4 +1,4 @@
-import Table from "./table";
+import Table from './table'
 import styles from '../../styles/Home.module.css'
 
 export default function scoreboard() {

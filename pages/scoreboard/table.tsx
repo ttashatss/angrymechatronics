@@ -6,8 +6,7 @@ import { useQuery } from 'react-query'
 export default function Table() {
     const sortBy:any = require('sort-by')
 
-    getUser().then(res => console.log(res))
-    const {isLoading, isError, data, error}:any = useQuery('users',getUser)
+    const {isLoading, error, data, isError}:any = useQuery('users',getUser)
 
     if(isLoading) return <div>Employee is Loading...</div>
     if(isError) return <div>{error}</div>

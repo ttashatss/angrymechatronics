@@ -1,7 +1,7 @@
 import connectingMongo from "../../../utils/db"
 import { getUsers,postUser,putUser } from "../../../utils/controller"
 
-export default async function handler(req,res){
+export default function handler(req:any,res:any){
     connectingMongo().catch(() => res.status(405).json({error: "Error in the Connection"}))
 
     const{ method } = req
@@ -23,3 +23,4 @@ export default async function handler(req,res){
             res.status(405).end('Method ${method} Not Allowed')
     }
 }
+

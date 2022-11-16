@@ -1,11 +1,18 @@
 export const getUser = async () => {
-    const response = await fetch('http://localhost:3000/api/users')
-    const json = await response.json()
-
-    return json
+    try {
+        const response = await fetch('api/users')
+        const json = await response.json()
+        return json
+    }
+    catch(e) {
+        console.log(e)
+    }
+    
+    
+    
 }
 
-export async function addUser(formData) {
+export async function addUser(formData:any) {
     try{
         const Options = {
             method: 'POST',

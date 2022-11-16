@@ -1,13 +1,12 @@
 import Birds from "../model/user"
 
 export async function getUsers(req:any,res:any) {
-    try{
-        const users = Birds.find({})
-
-        if(!users) return res.status(404).json({error: "Data not found"})
+    try {
+        const users = await Birds.find({})
         res.status(200).json(users)
-    } catch (error) {
-        res.status(404).json({error: "Error while fetching data"})
+    }    
+    catch(err) {
+        res.status(500).json(err)
     }
 }
 
@@ -28,7 +27,7 @@ export async function putUser(req:any,res:any){
         const {userId} = req.query
         const formData:any = req.body
         if(userId && formData) {
-            const user:any = Birds.findByIdAndUpdate(userId, formData)
+            const user:any = await Birds.findByIdAndUpdate(userId, formData)
             res.status(200).json(formData)
         }
         res.status(404).json({error: "User not detected"})

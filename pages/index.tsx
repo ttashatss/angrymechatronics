@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Input from './input'
 
@@ -21,10 +21,10 @@ export default function Home() {
         <div>
           <Input></Input>
         </div>
-        <a
+        <Link
            className={styles.buttonscore}
            href='/scoreboard'
-        >SCOREBOARD</a>
+        >SCOREBOARD</Link>
       </main>
     </div>
   )
