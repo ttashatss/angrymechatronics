@@ -12,7 +12,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          ANGRYCOW
+          ANGRYPIG
         </h1>
         <h1 className={styles.title}>
           USERNAME
