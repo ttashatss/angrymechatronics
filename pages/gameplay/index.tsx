@@ -1,10 +1,12 @@
 import styles from '../../styles/Home.module.css'
+import Socket from './socket'
+import Data from './socket'
 
 export default function gameplay() {
     const kills = 3
     const birdLive = 3
     return (<div>
-        <table className={styles.gameplay}>
+        {/* <table className={styles.gameplay}>
             <thead>
                 <tr>
                     <td>
@@ -25,6 +27,7 @@ export default function gameplay() {
                     </td>
                 </tr>
             </tbody>
-        </table>    
+        </table>     */}
+        <Data></Data>
     </div>)
 }
