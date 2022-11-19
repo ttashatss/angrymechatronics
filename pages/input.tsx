@@ -1,18 +1,26 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styles from '../styles/Home.module.css'
 import { useRouter } from "next/router";
+import Gameplay from "./gameplay";
+import socket from "../utils/socket";
 
-const Input = () => {
-    const [userName, setUserName] = useState('');
+export default function Input() {
+    const [username, setUsername] = useState('');
     const router = useRouter()
   
     const handleNameChange = (event: any) => {
         console.log(event.target.value)
-        setUserName(event.target.value)
+        setUsername(event.target.value)
     }
-    const handlePlayButton = (event: any) => {
-        console.log(userName)
-        router.push('/gameplay')
+    function HandlePlayButton(event: any) {
+        console.log(username)
+        router.push({
+            pathname: '/gameplay',
+            query: {
+                username
+            }
+            
+        })
     }
 
     return (
@@ -26,14 +34,14 @@ const Input = () => {
                     className={styles.input} 
                     minLength={1}
                     maxLength={15}
-                    value={userName}
+                    value={username}
                     onChange={handleNameChange}>
                 </input>
              </div>
             <div>
                 <button 
                     className={styles.buttonplay}
-                    onClick={handlePlayButton}>
+                    onClick={HandlePlayButton}>
                     PLAY
                 </button>
             </div>
@@ -41,5 +49,3 @@ const Input = () => {
        
     )
 }
-
-export default Input

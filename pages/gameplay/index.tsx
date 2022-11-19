@@ -1,12 +1,45 @@
 import styles from '../../styles/Home.module.css'
-import Socket from './socket'
-import Data from './socket'
+import { ReactDOM, useEffect, useState } from 'react'
+import { useRouter } from "next/router";
+import { io } from 'socket.io-client';
 
-export default function gameplay() {
-    const kills = 3
-    const birdLive = 3
+const socket = io("http://localhost:8000")
+
+function Gameplay() {
+    const [kills, setKills] = useState(0)
+    const [birdLive, setBirdLive] = useState(5)
+    const router = useRouter()
+
+    const {
+        query: {username}
+    }:any = router
+
+    const props = {
+        username
+    }
+    
+    useEffect(() => {
+        socket.on("connect", () => {
+            socket.emit("username", username)  
+            console.log("username sent")  
+        })
+        socket.on("score", (data) => {
+            setKills(data[0])
+            setBirdLive(data[1])
+        })
+        socket.on("win", (data) => {
+            console.log(data)
+        })
+        socket.on("lose", (data) => {
+            console.log(data)
+        })
+        
+    },[])
+
+    console.log([kills,birdLive])
+
     return (<div>
-        {/* <table className={styles.gameplay}>
+        <table className={styles.gameplay}>
             <thead>
                 <tr>
                     <td>
@@ -27,7 +60,7 @@ export default function gameplay() {
                     </td>
                 </tr>
             </tbody>
-        </table>     */}
-        <Data></Data>
+        </table>    
     </div>)
 }
+export default Gameplay
