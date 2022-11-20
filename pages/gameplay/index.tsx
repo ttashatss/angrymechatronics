@@ -7,8 +7,7 @@ const socket = io("http://localhost:8000")
 
 function Gameplay() {
     const [kills, setKills]:any = useState(0)
-    const [birdLive, setBirdLive]:any = useState(0)
-    setBirdLive(5)
+    const [birdLive, setBirdLive]:any = useState(5)
     const router:any = useRouter()
 
     const {
