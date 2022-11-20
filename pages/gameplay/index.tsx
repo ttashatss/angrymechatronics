@@ -6,10 +6,10 @@ import { io } from 'socket.io-client';
 const socket = io("http://localhost:8000")
 
 function Gameplay() {
-    const [kills, setKills] = useState(0)
-    const [birdLive, setBirdLive] = useState(0)
+    const [kills, setKills]:any = useState(0)
+    const [birdLive, setBirdLive]:any = useState(0)
     setBirdLive(5)
-    const router = useRouter()
+    const router:any = useRouter()
 
     const {
         query: {username}
@@ -25,8 +25,8 @@ function Gameplay() {
             console.log("username sent")  
         })
         socket.on("score", (data:any) => {
-            setKills(kills => kills+1)
-            setBirdLive(birdLive => birdLive+1)
+            setKills((kills:any) => kills+1)
+            setBirdLive((birdLive:any) => birdLive+1)
         })
         socket.on("win", (data:any) => {
             console.log(data)
@@ -35,7 +35,7 @@ function Gameplay() {
             console.log(data)
         })
         
-    },[username])
+    },[])
 
     console.log([kills, birdLive])
 
