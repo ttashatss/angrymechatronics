@@ -24,10 +24,10 @@ function Gameplay() {
             socket.emit("username", username)  
             console.log("username sent")  
         })
-        // socket.on("score", (data:any) => {
-        //     setKills(kills => kills+1)
-        //     setBirdLive(birdLive => birdLive+1)
-        // })
+        socket.on("score", (data:any) => {
+            setKills(kills => kills+1)
+            setBirdLive(birdLive => birdLive+1)
+        })
         socket.on("win", (data:any) => {
             console.log(data)
         })
@@ -35,9 +35,9 @@ function Gameplay() {
             console.log(data)
         })
         
-    },[])
+    },[username])
 
-    
+    console.log([kills, birdLive])
 
     return (<div>
         <table className={styles.gameplay}>
