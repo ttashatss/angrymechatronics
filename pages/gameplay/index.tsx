@@ -26,7 +26,6 @@ function Gameplay() {
         })
         socket.on("score", (data:any) => {
             console.log('data recieved')
-            console.log(data)
             // if (data[0] == 1) {
             //     setKills(kills => kills+1)
             // }
