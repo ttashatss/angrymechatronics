@@ -8,7 +8,8 @@ const socket = io("http://localhost:8000")
 function Gameplay() {
     const [kills, setKills] = useState(0)
     const [birdLive, setBirdLive] = useState(0)
-    setBirdLive(5)
+    const [killsScore, setKillsScore] = useState(0)
+    const [birdLiveScore, setBirdLiveScore] = useState(5)
     const router = useRouter()
 
     const {
@@ -42,7 +43,9 @@ function Gameplay() {
         
     },[])
 
-    
+    setKillsScore(killsScore+kills)
+    setBirdLiveScore(birdLiveScore+birdLive)
+
 
     return (<div>
         <table className={styles.gameplay}>
@@ -59,10 +62,10 @@ function Gameplay() {
             <tbody className={styles.score}>
                 <tr>
                     <td>
-                        <span>{kills}</span>
+                        <span>{killsScore}</span>
                     </td>
                     <td>
-                        <span>{birdLive}</span>
+                        <span>{birdLiveScore}</span>
                     </td>
                 </tr>
             </tbody>
