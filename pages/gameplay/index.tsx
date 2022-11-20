@@ -23,9 +23,9 @@ function Gameplay() {
             socket.emit("username", username)  
             console.log("username sent")  
         })
-        socket.on("score", (data) => {
-            setKills(kills+data[0])
-            setBirdLive(birdLive+data[1])
+        socket.on("score", (data:any) => {
+            setKills(kills + Number(data[0]))
+            setBirdLive(birdLive + Number(data[1]))
         })
         socket.on("win", (data) => {
             console.log(data)
@@ -36,7 +36,7 @@ function Gameplay() {
         
     },[])
 
-    console.log([kills,birdLive])
+    
 
     return (<div>
         <table className={styles.gameplay}>
