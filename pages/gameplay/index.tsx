@@ -8,8 +8,6 @@ const socket = io("http://localhost:8000")
 function Gameplay() {
     const [kills, setKills] = useState(0)
     const [birdLive, setBirdLive] = useState(0)
-    const [killsScore, setKillsScore] = useState(0)
-    const [birdLiveScore, setBirdLiveScore] = useState(5)
     const router = useRouter()
 
     const {
@@ -26,6 +24,7 @@ function Gameplay() {
             console.log("username sent")  
         })
         socket.on("score", (data:any) => {
+            console.log(data)
             if (data[0] == 1) {
                 setKills(kills => kills+1)
                 console.log(kills)
