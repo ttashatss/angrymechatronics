@@ -24,7 +24,7 @@ function Gameplay() {
             console.log("username sent")  
         })
         socket.on("score", (data:any) => {
-            console.log(data)
+            setKills(kills+1)
         })
         socket.on("win", (data) => {
             console.log(data)
