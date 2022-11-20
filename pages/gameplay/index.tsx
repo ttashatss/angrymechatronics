@@ -25,12 +25,13 @@ function Gameplay() {
             console.log("username sent")  
         })
         socket.on("score", (data:any) => {
-            if (data[0] == 1) {
-                setKills(kills => kills+1)
-            }
-            if (data[1] == -1){
-                setBirdLive(birdLive-1) 
-            }
+            console.log('data recieved')
+            // if (data[0] == 1) {
+            //     setKills(kills => kills+1)
+            // }
+            // if (data[1] == -1){
+            //     setBirdLive(birdLive-1) 
+            // }
            
         })
         socket.on("win", (data) => {
