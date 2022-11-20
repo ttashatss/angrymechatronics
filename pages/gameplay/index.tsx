@@ -25,7 +25,7 @@ function Gameplay() {
         })
         socket.on("score", (data:any) => {
             setKills((kills:any) => kills+1)
-            setBirdLive((birdLive:any) => birdLive+1)
+            setBirdLive((birdLive:any) => birdLive-1)
         })
         socket.on("win", (data:any) => {
             console.log(data)
@@ -37,6 +37,12 @@ function Gameplay() {
     },[])
 
     console.log([kills, birdLive])
+    if (birdLive == 0) {
+        console.log("You Lose")
+    }
+    if (kills >= 3) {
+        console.log("You Win")
+    }
 
     return (<div>
         <table className={styles.gameplay}>
