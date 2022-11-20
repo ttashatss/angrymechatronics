@@ -15,9 +15,9 @@ function Gameplay() {
         query: {username}
     }:any = router
 
-    const props = {
-        username
-    }
+    // const props:any = {
+    //     username
+    // }
     
     useEffect(() => {
         socket.on("connect", () => {
@@ -27,12 +27,11 @@ function Gameplay() {
         socket.on("score", (data:any) => {
             setKills(14)
             setBirdLive(3)
-           
         })
-        socket.on("win", (data) => {
+        socket.on("win", (data:any) => {
             console.log(data)
         })
-        socket.on("lose", (data) => {
+        socket.on("lose", (data:any) => {
             console.log(data)
         })
         
