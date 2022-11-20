@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import Input from './input'
+import Input from '../components/input'
 
 export default function Home() {
   return (

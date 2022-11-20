@@ -1,6 +1,6 @@
-import styles from '../../styles/Home.module.css'
-import data from "../../utils/data.json"
-import { getUser } from '../../lib/helper'
+import styles from "../styles/Home.module.css"
+import data from "../utils/data.json"
+import { getUser } from '../lib/helper'
 import { useQuery } from 'react-query'
 
 export default function Table() {
