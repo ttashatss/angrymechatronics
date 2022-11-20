@@ -24,8 +24,8 @@ function Gameplay() {
             console.log("username sent")  
         })
         socket.on("score", (data) => {
-            setKills(data[0])
-            setBirdLive(data[1])
+            setKills(kills+data[0])
+            setBirdLive(birdLive+data[1])
         })
         socket.on("win", (data) => {
             console.log(data)
