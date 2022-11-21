@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 const socket = io("http://localhost:8000")
 
 function Gameplay() {
-    const [kills, setKills]:any = useState(0)
+    const [kills, setKills]:any = useState(3)
     const [birdLive, setBirdLive]:any = useState(5)
     const router:any = useRouter()
 
@@ -29,21 +29,24 @@ function Gameplay() {
             }
             setBirdLive((birdLive:any) => birdLive-1)
         })
-        socket.on("win", (data:any) => {
-            console.log(data)
-        })
-        socket.on("lose", (data:any) => {
-            console.log(data)
-        })
+        // socket.on("win", (data:any) => {
+        //     console.log(data)
+        // })
+        // socket.on("lose", (data:any) => {
+        //     console.log(data)
+        // })
         
     },[])
-
     console.log([kills, birdLive])
     if (birdLive == 0) {
         console.log("You Lose")
+        router.push({
+            pathname: '/win',
+        })
     }
     if (kills >= 3) {
         console.log("You Win")
+
     }
 
     return (<div>

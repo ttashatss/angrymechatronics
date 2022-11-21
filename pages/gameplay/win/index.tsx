@@ -2,7 +2,7 @@ import styles from '../../../styles/Home.module.css'
 
 function Win() {
     return <div>
-        Hello
+        You Win
         <div>
             <a href='../' className={styles.buttonback}>BACK</a>
         </div>
