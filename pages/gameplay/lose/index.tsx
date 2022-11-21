@@ -10,7 +10,7 @@ function Win() {
 
     
     return (<div>
-        <div className={styles.result}>You Win</div>
+        <div className={styles.result}>You Lose</div>
         <div style={{
             display: "flex",
             justifyContent: "center"
