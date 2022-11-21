@@ -40,13 +40,12 @@ function Gameplay() {
     console.log([kills, birdLive])
     if (birdLive == 0) {
         console.log("You Lose")
-        router.push({
-            pathname: '/win',
-        })
     }
     if (kills >= 3) {
         console.log("You Win")
-
+        router.push({
+            pathname: '/win',
+        })
     }
 
     return (<div>
