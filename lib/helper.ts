@@ -19,7 +19,7 @@ export async function addUser(formData:any) {
             headers: {'Content-Type': "application/json"},
             body: JSON.stringify(formData)
         }
-        const response = await fetch('http://localhost:3000/api/users', Options)
+        const response = await fetch('api/users', Options)
         const json = await response.json()
 
         return json
