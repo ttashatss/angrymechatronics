@@ -1,6 +1,6 @@
 export const getUser = async () => {
     try {
-        const response = await fetch('api/users')
+        const response = await fetch('/api/users')
         const json = await response.json()
         return json
     }

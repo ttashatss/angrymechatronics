@@ -12,7 +12,7 @@ const socket = io("http://localhost:8000")
 
 function Gameplay() {
     const [kills, setKills]:any = useState(0)
-    const [birdLive, setBirdLive]:any = useState(5)
+    const [birdLive, setBirdLive]:any = useState(0)
     const router:any = useRouter()
 
     const {
@@ -52,9 +52,9 @@ function Gameplay() {
             birdLive
         }
         const addMutation = useMutation(addUser,{
-            onSuccess:() => {
+            onSuccess: async () => {
                 console.log("Data Inserted")
-                queryClient.prefetchQuery('users', getUser)
+                await queryClient.prefetchQuery('users', getUser)
             }
         })
         
@@ -62,23 +62,25 @@ function Gameplay() {
         addMutation.mutate(model)
     }
 
-    console.log([kills, birdLive])
-    if (birdLive == 0) {
-        console.log(username)
-        Senddata(username, kills, birdLive)
-        console.log("You Lose") 
-        router.push({
-            pathname: '/gameplay/lose',
-        })
-    }
-    if (kills >= 3) {
-        console.log(username)
-        Senddata(username, kills, birdLive)
-        console.log("You Win")
-        router.push({
-            pathname: '/gameplay/win',
-        })
-    }
+    useEffect(() => {
+        if (birdLive == 0) {
+            console.log(username)
+            Senddata(username, kills, birdLive)
+            console.log("You Lose") 
+            router.push({
+                pathname: '/gameplay/lose',
+            })
+        }
+        if (kills >= 3) {
+            console.log(username)
+            Senddata(username, kills, birdLive)
+            console.log("You Win")
+            router.push({
+                pathname: '/gameplay/win',
+            })
+        }
+    }, [username, kills, birdLive, router])
+    
    
 
     return (<div>

@@ -7,6 +7,7 @@ export default function Table() {
     const sortBy:any = require('sort-by')
 
     const {isLoading, error, data, isError}:any = useQuery('users',getUser)
+    console.log(data)
 
     if(isLoading) return <div>Player is Loading...</div>
     if(isError) return <div>{error}</div>
@@ -34,10 +35,10 @@ export default function Table() {
                                 <span>{item.username || 'unknown'}</span>
                             </td>
                             <td>
-                                <span>{item.kills || 0}</span>
+                                <span>{item.kills}</span>
                             </td>
                             <td>
-                                <span>{item.birdLive || 5}</span>
+                                <span>{item.birdLive}</span>
                             </td>
                         </tr>
                     )
