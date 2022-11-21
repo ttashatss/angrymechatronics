@@ -65,6 +65,7 @@ function Gameplay() {
     console.log([kills, birdLive])
     if (birdLive == 0) {
         console.log(username)
+        Senddata(username, kills, birdLive)
         console.log("You Lose") 
         router.push({
             pathname: '/gameplay/lose',
@@ -72,6 +73,7 @@ function Gameplay() {
     }
     if (kills >= 3) {
         console.log(username)
+        Senddata(username, kills, birdLive)
         console.log("You Win")
         router.push({
             pathname: '/gameplay/win',
