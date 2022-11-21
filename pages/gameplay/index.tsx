@@ -2,6 +2,11 @@ import styles from '../../styles/Home.module.css'
 import { ReactDOM, useEffect, useState } from 'react'
 import { useRouter } from "next/router";
 import { io } from 'socket.io-client';
+import { addUser,getUser } from '../../lib/helper';
+import { useQueryClient } from 'react-query';
+import { useMutation } from 'react-query';
+import { postUser } from '../../utils/controller';
+
 
 const socket = io("http://localhost:8000")
 
@@ -38,6 +43,25 @@ function Gameplay() {
         // })
         
     },[])
+
+    function Senddata(username:any, kills:any, birdLive:any){
+        const queryClient = useQueryClient()
+        const model = {
+            username,
+            kills, 
+            birdLive
+        }
+        const addMutation = useMutation(addUser,{
+            onSuccess:() => {
+                console.log("Data Inserted")
+                queryClient.prefetchQuery('users', getUser)
+            }
+        })
+        
+
+        addMutation.mutate(model)
+    }
+
     console.log([kills, birdLive])
     if (birdLive == 0) {
         console.log(username)

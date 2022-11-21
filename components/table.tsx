@@ -8,7 +8,7 @@ export default function Table() {
 
     const {isLoading, error, data, isError}:any = useQuery('users',getUser)
 
-    if(isLoading) return <div>Employee is Loading...</div>
+    if(isLoading) return <div>Player is Loading...</div>
     if(isError) return <div>{error}</div>
 
     return(<div>
