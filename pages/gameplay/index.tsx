@@ -28,6 +28,13 @@ function Gameplay() {
                 setKills((kills:any) => kills+1)
             }
             setBirdLive((birdLive:any) => birdLive-1)
+
+            if (kills >= 3) {
+                console.log("You Win")
+                router.push({
+                    pathname: '/win',
+                })
+            }
         })
         // socket.on("win", (data:any) => {
         //     console.log(data)
@@ -41,12 +48,7 @@ function Gameplay() {
     if (birdLive == 0) {
         console.log("You Lose")
     }
-    if (kills >= 3) {
-        console.log("You Win")
-        router.push({
-            pathname: '/win',
-        })
-    }
+   
 
     return (<div>
         <table className={styles.gameplay}>
