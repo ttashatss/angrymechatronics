@@ -14,6 +14,13 @@ function Gameplay() {
     const [kills, setKills]:any = useState(0)
     const [birdLive, setBirdLive]:any = useState(0)
     const router:any = useRouter()
+    const queryClient = useQueryClient()
+    const addMutation = useMutation(addUser,{
+        onSuccess: async () => {
+            console.log("Data Inserted")
+            await queryClient.prefetchQuery('users', getUser)
+        }
+    })
 
     const {
         query: {username}
@@ -45,19 +52,12 @@ function Gameplay() {
     },[])
 
     function Senddata(username:any, kills:any, birdLive:any){
-        const queryClient = useQueryClient()
+        
         const model = {
             username,
             kills, 
             birdLive
         }
-        const addMutation = useMutation(addUser,{
-            onSuccess: async () => {
-                console.log("Data Inserted")
-                await queryClient.prefetchQuery('users', getUser)
-            }
-        })
-        
 
         addMutation.mutate(model)
     }
